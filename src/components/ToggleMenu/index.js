@@ -10,12 +10,12 @@ import history from '../../services/history';
 import timeToast from '../../config/timeToast';
 
 import { showView, loadHandout } from '../../store/modules/handout/actions';
+import { showProblem } from '../../store/modules/problem/actions';
 import { loadRecipient } from '../../store/modules/recipient/actions';
 import {
   loadCourier,
   sendAvatarSettings,
 } from '../../store/modules/courier/actions';
-import { loadProblem } from '../../store/modules/problem/actions';
 
 import { Container, MenuList, ItemMenu, ItemText } from './styles';
 
@@ -59,12 +59,18 @@ async function handleDelete(id, dispatch, what) {
 
 function handleEdit(id, what) {}
 
+function handleView(id, what, dispatch, description) {
+  if (what === 'handouts') dispatch(showView({ id, show: true }));
+  if (what === 'problems') dispatch(showProblem({ description, show: true }));
+}
+
 export default function ToggleMenu({
   id,
   handouts,
   couriers,
   destinatarios,
   problemas,
+  description,
 }) {
   const dispatch = useDispatch();
 
@@ -84,7 +90,7 @@ export default function ToggleMenu({
             <GoEye color="#8E5BE8" />
             <ItemText
               onClick={() => {
-                dispatch(showView({ id, show: true }));
+                handleView(id, what, dispatch, description);
               }}
             >
               Visualizar

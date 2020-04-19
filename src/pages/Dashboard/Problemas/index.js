@@ -6,6 +6,8 @@ import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import api from '../../../services/api';
 
+import ViewProblem from '../../../components/ProblemView';
+
 import ToggleMenu from '../../../components/ToggleMenu';
 
 import Header from '../../../components/Header';
@@ -32,7 +34,13 @@ export default function DashboardEncomendas() {
   const [appear, setAppear] = useState('');
   const [page, setPage] = useState(1);
 
-  const refresh = useSelector((state) => state.problem.refresh);
+  const showProblem = useSelector((state) => state.problem.show);
+
+  useEffect(() => {
+    if (showProblem) {
+      setAppear(0);
+    }
+  }, [showProblem]);
 
   useEffect(() => {
     async function loadHandouts() {
@@ -47,7 +55,7 @@ export default function DashboardEncomendas() {
       setHandouts(data);
     }
     loadHandouts();
-  }, [page, refresh]);
+  }, [page]);
 
   const headersAndWidths = useMemo(
     () => ['Encomenda 188px', 'Problema 996px', 'Ações 50px'],
@@ -84,6 +92,7 @@ export default function DashboardEncomendas() {
 
   return (
     <Wrapper>
+      {showProblem && <ViewProblem />}
       <Header problemas />
 
       <Content>
@@ -149,7 +158,11 @@ export default function DashboardEncomendas() {
                               setAppear(0);
                             }}
                           >
-                            <ToggleMenu id={item.delivery_id} problemas />
+                            <ToggleMenu
+                              id={item.delivery_id}
+                              description={item.description}
+                              problemas
+                            />
                           </OutsideClickHandler>
                         )}
                       </Actions>

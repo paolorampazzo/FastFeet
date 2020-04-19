@@ -12,6 +12,7 @@ import AddCourier from '../pages/Dashboard/Entregadores/CadastrarEntregador';
 import AddRecipient from '../pages/Dashboard/Destinatarios/CadastrarDestinatario';
 import EditHandout from '../pages/Dashboard/Encomendas/EditarEncomenda';
 import EditCourier from '../pages/Dashboard/Entregadores/EditarEntregador';
+import EditRecipient from '../pages/Dashboard/Destinatarios/EditarDestinatario';
 
 export default function Routes() {
   return (
@@ -25,6 +26,7 @@ export default function Routes() {
       <Route path="/recipients/add" exact component={AddRecipient} isPrivate />
       <Route path="/handouts/:id" exact component={EditHandout} isPrivate />
       <Route path="/couriers/:id" exact component={EditCourier} isPrivate />
+      <Route path="/recipients/:id" exact component={EditRecipient} isPrivate />
 
       <Route path="/" exact component={SignIn} />
 
