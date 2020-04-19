@@ -8,7 +8,12 @@ import { signOut } from '../../store/modules/auth/actions';
 
 import { Container, Content, Title, Admin, Button, Titles } from './styles';
 
-export default function Header() {
+export default function Header({
+  encomendas,
+  entregadores,
+  destinatarios,
+  problemas,
+}) {
   const dispatch = useDispatch();
 
   function handleSignOut() {
@@ -19,19 +24,21 @@ export default function Header() {
     <Container>
       <Content>
         <nav>
-          <img src={logo} alt="FastFeet" />
+          <Link to="/">
+            <img src={logo} alt="FastFeet" />
+          </Link>
           <Titles>
             <Link to="/">
-              <Title current>ENCOMENDAS</Title>
+              <Title current={encomendas}>ENCOMENDAS</Title>
             </Link>
-            <Link to="/">
-              <Title>ENTREGADORES</Title>
+            <Link to="/couriers">
+              <Title current={entregadores}>ENTREGADORES</Title>
             </Link>
-            <Link to="/">
-              <Title>DESTINATARIOS</Title>
+            <Link to="/recipients">
+              <Title current={destinatarios}>DESTINATÁRIOS</Title>
             </Link>
-            <Link to="/">
-              <Title>PROBLEMAS</Title>
+            <Link to="/problems">
+              <Title current={problemas}>PROBLEMAS</Title>
             </Link>
           </Titles>
         </nav>

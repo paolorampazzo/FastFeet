@@ -103,6 +103,7 @@ export const THeader = styled.div`
 export const TTitle = styled.div`
   margin: 0;
   width: ${(props) => props.width};
+
   font-size: 16px;
   font-weight: bold;
   color: #444444;
@@ -120,7 +121,7 @@ export const TItem = styled.li`
   align-items: center;
 
   padding: 0 22px;
-
+  flex-wrap: nowrap;
   margin-bottom: 21px;
   border-radius: 4px;
 `;
@@ -128,12 +129,14 @@ export const TItem = styled.li`
 export const ItemContent = styled.div`
   display: flex;
   align-items: center;
+
   margin: 0;
   width: ${(props) => props.width};
+  max-width: ${(props) => props.maxwidth};
   margin-left: ${(props) => props.margin};
-  font-size: 16px;
+  font-size: max(min(16px, 1.5vw), 10px);
   color: #666666;
-
+  overflow: ${(props) => (props.overflow ? 'inherit' : 'hidden')};
   padding: 0 4px;
 `;
 
@@ -165,7 +168,7 @@ export const Status = styled.div`
 export const StatusText = styled.div`
   font-weight: bold;
   font-size: 14px;
-  margin: 2px 0px;
+  margin: 2px 5px;
 `;
 
 export const Avatar = styled.div`

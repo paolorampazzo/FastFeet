@@ -28,7 +28,6 @@ export const Forms = styled(Form)`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  flex-wrap: wrap;
 `;
 
 export const InputsDesign = styled.div`
@@ -59,12 +58,11 @@ export const Inputs = styled(Input)`
   }
 `;
 
-export const Add = styled.div`
+export const Add = styled.button`
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
 
   width: 142px;
   height: 36px;
@@ -96,7 +94,7 @@ export const Table = styled.div`
 export const THeader = styled.div`
   display: flex;
   flex-direction: row;
-  padding: 12px 24px 22px;
+  margin: 22px 24px;
   width: 100%;
 `;
 
@@ -133,8 +131,6 @@ export const ItemContent = styled.div`
   margin-left: ${(props) => props.margin};
   font-size: 16px;
   color: #666666;
-
-  padding: 0 4px;
 `;
 
 export const Actions = styled.button`
@@ -149,69 +145,8 @@ export const Actions = styled.button`
   margin-bottom: 10px;
 `;
 
-export const Status = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  background: ${(props) => props.background};
-  color: ${(props) => props.color};
-  height: 25px;
-  width: ${(props) => (props.status === 'CANCELADA' ? '110px' : '99px')};
-
-  border-radius: 12px;
-`;
-
-export const StatusText = styled.div`
-  font-weight: bold;
-  font-size: 14px;
-  margin: 2px 0px;
-`;
-
-export const Avatar = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 17.5px;
-  height: 35px;
-  width: 35px;
-  margin-right: 12px;
-  background: ${(props) => lighten(0.5, props.color)};
-  color: ${(props) => props.color};
-
-  font-size: 16px;
-`;
-
-export const ImgAvatar = styled.div`
-  display: flex;
-  margin-right: 12px;
-  img {
-    height: 35px;
-    width: 35px;
-    border-radius: 50%;
-  }
-`;
-
-export const Filtros = styled.div`
-  display: flex;
-
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  background: #eee;
-  border-radius: 10px;
-  min-width: 30vw;
-  max-width: 50vw;
-  height: 36px;
-`;
-
-export const Filtro = styled.button`
-  opacity: ${(props) => (props.active ? 1.0 : 0.4)};
-  border: 0;
-  background: none;
-`;
 export const Pages = styled.div`
-  margin: 10px auto 0;
+  margin: 20px auto 10px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
   background: ${lighten(0.35, '#7d40e7')};
   border-radius: 4px;

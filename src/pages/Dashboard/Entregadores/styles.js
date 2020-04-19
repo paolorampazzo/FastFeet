@@ -96,7 +96,9 @@ export const Table = styled.div`
 export const THeader = styled.div`
   display: flex;
   flex-direction: row;
+  margin: 22px 24px;
   padding: 12px 24px 22px;
+
   width: 100%;
 `;
 
@@ -133,13 +135,9 @@ export const ItemContent = styled.div`
   margin-left: ${(props) => props.margin};
   font-size: 16px;
   color: #666666;
-
-  padding: 0 4px;
 `;
 
 export const Actions = styled.button`
-  /* margin: 0;
-  width: ${(props) => props.width}; */
   border: 0;
   background: none;
   font-size: 24px;
@@ -147,25 +145,6 @@ export const Actions = styled.button`
   font-weight: bold;
   margin-left: 10px;
   margin-bottom: 10px;
-`;
-
-export const Status = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  background: ${(props) => props.background};
-  color: ${(props) => props.color};
-  height: 25px;
-  width: ${(props) => (props.status === 'CANCELADA' ? '110px' : '99px')};
-
-  border-radius: 12px;
-`;
-
-export const StatusText = styled.div`
-  font-weight: bold;
-  font-size: 14px;
-  margin: 2px 0px;
 `;
 
 export const Avatar = styled.div`
@@ -192,24 +171,6 @@ export const ImgAvatar = styled.div`
   }
 `;
 
-export const Filtros = styled.div`
-  display: flex;
-
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  background: #eee;
-  border-radius: 10px;
-  min-width: 30vw;
-  max-width: 50vw;
-  height: 36px;
-`;
-
-export const Filtro = styled.button`
-  opacity: ${(props) => (props.active ? 1.0 : 0.4)};
-  border: 0;
-  background: none;
-`;
 export const Pages = styled.div`
   margin: 10px auto 0;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
