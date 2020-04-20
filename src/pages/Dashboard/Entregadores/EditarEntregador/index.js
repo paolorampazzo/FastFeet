@@ -4,7 +4,10 @@ import rc from 'randomcolor';
 import { useParams, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { MdNavigateBefore, MdCheck } from 'react-icons/md';
-import { sendAvatarUrl } from '../../../../store/modules/courier/actions';
+import {
+  sendAvatarUrl,
+  sendAvatarId,
+} from '../../../../store/modules/courier/actions';
 
 import api from '../../../../services/api';
 
@@ -66,6 +69,8 @@ export default function EditarEntregador() {
 
         setEmail(response.data.email);
         setName(response.data.name);
+        if (response.data.avatar)
+          dispatch(sendAvatarId(response.data.avatar.id));
       } catch (err) {
         toast.error('O usuario nao existe!');
         setTimeout(() => history.push('/couriers'), timeToast);
